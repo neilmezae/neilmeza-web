@@ -1,0 +1,81 @@
+/*
+ * ThesisBlock — visually isolated definition of "infraestructura colaborativa"
+ * Citable and shareable. Separates from the biographical narrative above and below.
+ * Source: docs/16_BUILD_BRIEF.md §II.4, docs/07_VISUAL_IDENTITY.md §IV
+ */
+
+.block {
+  margin: var(--space-section-gap) 0;
+  padding: var(--space-10) var(--space-10);
+  background-color: var(--color-background-subtle);
+  border-top: 2px solid var(--color-accent);
+}
+
+.conceptLabel {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  margin-bottom: var(--space-6);
+}
+
+/* ─────────────────────────────────────────────
+ * DEFINITION
+ * Slightly larger than body — signals weight.
+ * ───────────────────────────────────────────── */
+
+.definition {
+  margin-bottom: var(--space-8);
+}
+
+.definition p {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-light);
+  color: var(--color-text-primary);
+  line-height: var(--leading-relaxed);
+  max-width: var(--measure-default);
+}
+
+.definition p + p {
+  margin-top: var(--space-4);
+}
+
+/* Hide empty TODO placeholder paragraph */
+.definition p:empty {
+  display: none;
+}
+
+/* ─────────────────────────────────────────────
+ * BRAND PHRASES
+ * The two citable sentences — visually distinct.
+ * ───────────────────────────────────────────── */
+
+.phrases {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-6);
+  border-top: var(--border-width-thin) solid var(--color-border-subtle);
+}
+
+.phrase {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* ─────────────────────────────────────────────
+ * RESPONSIVE
+ * ───────────────────────────────────────────── */
+
+@media (max-width: 56rem) {
+  .block {
+    padding: var(--space-8) var(--space-6);
+  }
+}

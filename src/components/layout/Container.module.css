@@ -1,0 +1,51 @@
+/*
+ * Container — neilmeza.com
+ * Max-width wrapper with horizontal padding.
+ * Four variants matching the measure tokens.
+ */
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-page-margin-lg);
+  padding-right: var(--space-page-margin-lg);
+}
+
+/* default — full content width */
+.default {
+  max-width: var(--max-width-content);
+}
+
+/* narrow — for section text blocks */
+.narrow {
+  max-width: var(--max-width-text);
+}
+
+/* essay — for long-form reading column */
+.essay {
+  max-width: var(--max-width-essay);
+}
+
+/* wide — no max-width constraint (edge cases only) */
+.wide {
+  max-width: none;
+}
+
+/* ─────────────────────────────────────────────
+ * RESPONSIVE PADDING
+ * ───────────────────────────────────────────── */
+
+@media (max-width: 48rem) {
+  .container {
+    padding-left: var(--space-page-margin-sm);
+    padding-right: var(--space-page-margin-sm);
+  }
+}
+
+@media (min-width: 48rem) and (max-width: 64rem) {
+  .container {
+    padding-left: var(--space-page-margin-md);
+    padding-right: var(--space-page-margin-md);
+  }
+}

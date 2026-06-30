@@ -1,0 +1,110 @@
+/*
+ * Hero — Block 1 of homepage
+ * 100vh. Display headline only. NavBar renders transparently over this.
+ * Container provides horizontal padding — no custom gutter needed here.
+ * Source: docs/16_BUILD_BRIEF.md §II.1 — Bloque 1
+ */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh; /* small viewport height — avoids address-bar issues on iOS */
+  background-color: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: var(--space-24);
+  padding-top: var(--space-32); /* clears the transparent NavBar */
+}
+
+/* ─────────────────────────────────────────────
+ * CONTENT WRAPPER
+ * max-width in px — not ch — avoids narrow char-grid at display sizes.
+ * ───────────────────────────────────────────── */
+
+.content {
+  max-width: 960px;
+}
+
+/* ─────────────────────────────────────────────
+ * HEADLINE
+ * Responsive fluid size. Tight line-height.
+ * overflow-wrap + word-break prevent syllable-level breaks.
+ * ───────────────────────────────────────────── */
+
+.headline {
+  font-family: var(--font-sans);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-8);
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* ─────────────────────────────────────────────
+ * SUBTITLE
+ * One line. Smaller. Labels the concept.
+ * ───────────────────────────────────────────── */
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-light);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
+}
+
+/* ─────────────────────────────────────────────
+ * SCROLL INDICATOR
+ * Bottom center. No button. Continues visually.
+ * ───────────────────────────────────────────── */
+
+.scrollIndicator {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scrollArrow {
+  display: block;
+  font-size: var(--font-size-base);
+  color: var(--color-text-tertiary);
+  animation: arrowBounce 2.4s var(--ease-out) infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50%       { transform: translateY(6px); opacity: 0.9; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollArrow {
+    animation: none;
+    opacity: 0.5;
+  }
+}
+
+/* ─────────────────────────────────────────────
+ * RESPONSIVE
+ * ───────────────────────────────────────────── */
+
+@media (max-width: 48rem) {
+  .hero {
+    padding-bottom: var(--space-20);
+  }
+
+  .headline {
+    /* Mobile: larger vw coefficient to fill the narrower viewport. */
+    font-size: clamp(2.75rem, 14vw, 4.5rem);
+    line-height: 1.05;
+  }
+
+  .content {
+    max-width: 100%; /* no px cap on mobile — let the Container margin do the work */
+  }
+}

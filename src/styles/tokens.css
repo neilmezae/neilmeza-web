@@ -1,0 +1,258 @@
+/*
+ * DESIGN TOKENS — neilmeza.com
+ * Source of truth: docs/08_DESIGN_SYSTEM.md
+ *
+ * Three levels:
+ *   1. Primitive tokens — raw values, no semantic meaning
+ *   2. Semantic tokens  — communicate USE, map to primitives
+ *   3. Component tokens — scoped to a component, map to semantics
+ *
+ * Only primitives and semantics are defined here.
+ * Component tokens live in their respective .module.css files.
+ */
+
+:root {
+
+  /* ─────────────────────────────────────────────
+   * I. PRIMITIVE COLORS
+   * ───────────────────────────────────────────── */
+
+  /* Stone scale — warm whites, grays, blacks */
+  --primitive-stone-0:   #F9F8F6;
+  --primitive-stone-50:  #F2F1EE;
+  --primitive-stone-100: #E7E5E4;
+  --primitive-stone-200: #D6D3D1;
+  --primitive-stone-300: #C2BEBC;
+  --primitive-stone-400: #A8A29E;
+  --primitive-stone-500: #87837F;
+  --primitive-stone-600: #57534E;
+  --primitive-stone-700: #44403C;
+  --primitive-stone-800: #292524;
+  --primitive-stone-900: #1C1917;
+  --primitive-stone-950: #0E0D0C;
+
+  /* Copper scale — brand accent */
+  --primitive-copper-50:  #F8EDE7;
+  --primitive-copper-100: #F0D4C4;
+  --primitive-copper-200: #DCA98C;
+  --primitive-copper-500: #A0522D;
+  --primitive-copper-600: #8A4726;
+  --primitive-copper-700: #6D381D;
+  --primitive-copper-900: #3A1D0E;
+
+
+  /* ─────────────────────────────────────────────
+   * II. SEMANTIC COLORS
+   * ───────────────────────────────────────────── */
+
+  /* Backgrounds */
+  --color-background:         var(--primitive-stone-0);
+  --color-background-subtle:  var(--primitive-stone-50);
+  --color-background-inverse: var(--primitive-stone-900);
+  --color-background-accent:  var(--primitive-copper-50);
+
+  /* Text */
+  --color-text-primary:   var(--primitive-stone-950);
+  --color-text-secondary: var(--primitive-stone-600);
+  --color-text-tertiary:  var(--primitive-stone-400);
+  --color-text-disabled:  var(--primitive-stone-300);
+  --color-text-inverse:   var(--primitive-stone-0);
+  --color-text-accent:    var(--primitive-copper-500);
+
+  /* Borders */
+  --color-border-subtle:  var(--primitive-stone-100);
+  --color-border-default: var(--primitive-stone-200);
+  --color-border-strong:  var(--primitive-stone-400);
+  --color-border-accent:  var(--primitive-copper-200);
+
+  /* Accent */
+  --color-accent:        var(--primitive-copper-500);
+  --color-accent-hover:  var(--primitive-copper-600);
+  --color-accent-active: var(--primitive-copper-700);
+  --color-accent-subtle: var(--primitive-copper-50);
+
+  /* Focus */
+  --color-focus-ring:        var(--primitive-copper-500);
+  --color-focus-ring-offset: var(--primitive-stone-0);
+
+  /* Feedback */
+  --color-success: #2D6A4F;
+  --color-error:   #9B2C2C;
+  --color-warning: #92400E;
+
+
+  /* ─────────────────────────────────────────────
+   * III. TYPOGRAPHY
+   * ───────────────────────────────────────────── */
+
+  /*
+   * FONTS — TODO: Replace with licensed typefaces
+   *
+   * Target typefaces (docs/07_VISUAL_IDENTITY.md §III):
+   *   Sans: Söhne (Klim Type Foundry) — weights 300, 400, 500, 600, 700
+   *   Serif: Tiempos Text (Klim Type Foundry) — weights 400, 400 italic
+   *
+   * Setup (when font files are available):
+   *   1. Place .woff2 files in /public/fonts/ (subset to Latin)
+   *   2. Load via next/font/local in src/app/layout.tsx
+   *   3. Expose as CSS variables and update --font-sans / --font-serif below
+   *   4. Each .woff2 file must be < 50KB
+   *   5. font-display: swap for Söhne, font-display: optional for Tiempos Text
+   */
+  --font-sans:  system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --font-mono:  'JetBrains Mono', 'Fira Code', ui-monospace, 'Cascadia Code', monospace;
+
+  /* Type scale — perfect fourth (×1.333), base 16px */
+  --font-size-xs:      0.75rem;     /* 12px — metadata, dates, minimal labels */
+  --font-size-sm:      0.875rem;    /* 14px — secondary nav, captions */
+  --font-size-base:    1rem;        /* 16px — body text (sans) */
+  --font-size-essay:   1.125rem;    /* 18px — body text (serif, essays) */
+  --font-size-md:      1.3125rem;   /* 21px — emphasized body, introductions */
+  --font-size-lg:      1.75rem;     /* 28px — section headings (H3) */
+  --font-size-xl:      2.3125rem;   /* 37px — page headings (H2) */
+  --font-size-2xl:     3.125rem;    /* 50px — primary headings (H1) */
+  --font-size-3xl:     4.1875rem;   /* 67px — display section */
+  --font-size-display: clamp(4rem, 6vw, 6rem); /* 64–96px — homepage hero, fluid */
+
+  /* Font weights */
+  --font-weight-light:    300;
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  /* Line heights */
+  --leading-none:    1;
+  --leading-tight:   1.05;   /* Display, large headings */
+  --leading-snug:    1.2;    /* H1, H2 */
+  --leading-normal:  1.3;    /* H3, H4 */
+  --leading-relaxed: 1.65;   /* Body sans-serif */
+  --leading-loose:   1.75;   /* Body serif (essays) */
+
+  /* Letter spacing */
+  --tracking-tight:   -0.025em;  /* Display and large headings */
+  --tracking-normal:   0em;      /* Body text */
+  --tracking-wide:     0.04em;   /* Labels, metadata */
+  --tracking-widest:   0.1em;    /* Uppercase labels */
+
+  /* Column measure (optimal line length) */
+  --measure-narrow:  52ch;   /* Essays — intense reading */
+  --measure-default: 68ch;   /* Standard body text */
+  --measure-wide:    85ch;   /* Introductions, support text */
+
+
+  /* ─────────────────────────────────────────────
+   * IV. SPACING
+   * ───────────────────────────────────────────── */
+
+  /* Primitive spacing — base 4px */
+  --space-0:   0;
+  --space-px:  1px;
+  --space-1:   0.25rem;    /* 4px  */
+  --space-2:   0.5rem;     /* 8px  */
+  --space-3:   0.75rem;    /* 12px */
+  --space-4:   1rem;       /* 16px  */
+  --space-5:   1.25rem;    /* 20px  */
+  --space-6:   1.5rem;     /* 24px  */
+  --space-8:   2rem;       /* 32px  */
+  --space-10:  2.5rem;     /* 40px  */
+  --space-12:  3rem;       /* 48px  */
+  --space-16:  4rem;       /* 64px  */
+  --space-20:  5rem;       /* 80px  */
+  --space-24:  6rem;       /* 96px  */
+  --space-32:  8rem;       /* 128px */
+  --space-48:  12rem;      /* 192px */
+
+  /* Semantic spacing */
+  --space-component-xs: var(--space-2);   /* Small UI internal padding */
+  --space-component-sm: var(--space-3);   /* Standard UI internal padding */
+  --space-component-md: var(--space-4);   /* Medium UI internal padding */
+  --space-component-lg: var(--space-6);   /* Large UI internal padding */
+
+  --space-section-gap:   var(--space-24); /* Between homepage sections */
+  --space-block-gap:     var(--space-16); /* Between content blocks */
+  --space-element-gap:   var(--space-8);  /* Between elements within a block */
+  --space-inline-gap:    var(--space-4);  /* Between inline elements */
+
+  --space-page-margin-sm: var(--space-4);  /* Mobile lateral margin */
+  --space-page-margin-md: var(--space-8);  /* Tablet lateral margin */
+  --space-page-margin-lg: var(--space-16); /* Desktop lateral margin */
+
+
+  /* ─────────────────────────────────────────────
+   * V. LAYOUT
+   * ───────────────────────────────────────────── */
+
+  /* Max widths */
+  --max-width-content: 75rem;    /* 1200px — main container */
+  --max-width-text:    45rem;    /* 720px  — section text */
+  --max-width-essay:   40rem;    /* 640px  — essay column */
+  --max-width-narrow:  30rem;    /* 480px  — narrow components */
+
+  /* Breakpoints (reference only — use in media queries, not as CSS properties) */
+  /* sm: 40rem / 640px  */
+  /* md: 48rem / 768px  */
+  /* lg: 64rem / 1024px */
+  /* xl: 80rem / 1280px */
+  /* 2xl: 90rem / 1440px */
+
+  /* Grid */
+  --grid-columns:    12;
+  --grid-gutter:     var(--space-6);  /* 24px */
+  --grid-gutter-lg:  var(--space-8);  /* 32px on desktop */
+
+
+  /* ─────────────────────────────────────────────
+   * VI. MOTION
+   * ───────────────────────────────────────────── */
+
+  /* Durations */
+  --duration-instant: 100ms;   /* Imperceptible microinteractions */
+  --duration-fast:    150ms;   /* Color hover states */
+  --duration-base:    200ms;   /* Standard UI transition */
+  --duration-enter:   200ms;   /* Element entering view */
+  --duration-exit:    150ms;   /* Element exiting — slightly faster */
+  --duration-page:    180ms;   /* Page transition */
+  --duration-slow:    300ms;   /* Heavier visual elements */
+
+  /* Easing curves */
+  --ease-out:   cubic-bezier(0.0, 0.0, 0.2, 1.0);   /* Standard for entries */
+  --ease-in:    cubic-bezier(0.4, 0.0, 1.0, 1.0);   /* Standard for exits */
+  --ease-inout: cubic-bezier(0.4, 0.0, 0.2, 1.0);   /* Symmetric transitions */
+
+  /* Enter transforms */
+  --enter-translate-y:    8px;
+  --enter-opacity-start:  0;
+  --enter-opacity-end:    1;
+
+
+  /* ─────────────────────────────────────────────
+   * VII. RADIUS & BORDER
+   * ───────────────────────────────────────────── */
+
+  --radius-none:   0;
+  --radius-sm:     2px;
+  --radius-base:   4px;    /* Buttons, inputs */
+  --radius-md:     6px;    /* Cards */
+  --radius-lg:     8px;    /* Larger containers */
+  --radius-full:   9999px; /* Pills */
+
+  --border-width-thin:    1px;
+  --border-width-default: 1px;
+  --border-width-thick:   2px;
+
+
+  /* ─────────────────────────────────────────────
+   * VIII. Z-INDEX
+   * ───────────────────────────────────────────── */
+
+  --z-below:    -1;
+  --z-base:      0;
+  --z-raised:   10;
+  --z-overlay:  20;
+  --z-nav:     100;
+  --z-modal:   200;
+  --z-toast:   300;
+
+}

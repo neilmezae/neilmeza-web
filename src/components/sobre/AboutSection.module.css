@@ -1,0 +1,74 @@
+/*
+ * AboutSection — narrative section wrapper for /sobre
+ * Label (left column on desktop) + body (right column on desktop).
+ * Stacks vertically on mobile.
+ * Source: docs/16_BUILD_BRIEF.md §II.4
+ */
+
+.section {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: var(--space-8);
+  padding-top: var(--space-block-gap);
+  padding-bottom: var(--space-block-gap);
+  border-top: var(--border-width-thin) solid var(--color-border-subtle);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  padding-top: var(--space-1);
+  flex-shrink: 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* Body text — passed as children */
+.body p {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  line-height: var(--leading-relaxed);
+  max-width: var(--measure-default);
+}
+
+/* TODO placeholder paragraphs */
+.body p[data-todo] {
+  color: var(--color-text-tertiary);
+  font-style: italic;
+}
+
+/* Lists within sections (La trayectoria) */
+.body ul,
+.body ol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-left: var(--space-4);
+}
+
+.body li {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  line-height: var(--leading-relaxed);
+}
+
+/* ─────────────────────────────────────────────
+ * RESPONSIVE
+ * ───────────────────────────────────────────── */
+
+@media (max-width: 56rem) {
+  .section {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}

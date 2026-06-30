@@ -1,0 +1,125 @@
+/*
+ * Footer — neilmeza.com
+ * Minimal. Logo + navigation + copyright + contact email.
+ * Source: docs/16_BUILD_BRIEF.md §V (Components de Layout)
+ */
+
+.footer {
+  border-top: var(--border-width-thin) solid var(--color-border-subtle);
+  background-color: var(--color-background);
+  margin-top: var(--space-section-gap);
+}
+
+.inner {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-page-margin-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* ─────────────────────────────────────────────
+ * TOP ROW — logo + nav
+ * ───────────────────────────────────────────── */
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+.logo {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.navLink {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.navLink:hover {
+  color: var(--color-text-primary);
+}
+
+/* ─────────────────────────────────────────────
+ * BOTTOM ROW — copyright + email
+ * ───────────────────────────────────────────── */
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  border-top: var(--border-width-thin) solid var(--color-border-subtle);
+  padding-top: var(--space-8);
+}
+
+.copyright {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-wide);
+  max-width: none;
+}
+
+.contact {
+  font-style: normal;
+}
+
+.email {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  text-decoration: none;
+  letter-spacing: var(--tracking-wide);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.email:hover {
+  color: var(--color-text-primary);
+}
+
+/* ─────────────────────────────────────────────
+ * RESPONSIVE
+ * ───────────────────────────────────────────── */
+
+@media (max-width: 48rem) {
+  .inner {
+    padding: var(--space-8) var(--space-page-margin-sm);
+  }
+
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-6);
+  }
+
+  .nav {
+    gap: var(--space-4);
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+}

@@ -1,0 +1,166 @@
+/*
+ * ThoughtPreviewBlock — Block 4 of homepage
+ * Up to 2 essays. No thumbnails. Hover: title weight increases.
+ * Source: docs/16_BUILD_BRIEF.md §II.1 — Bloque 4
+ */
+
+.section {
+  padding: var(--space-section-gap) 0;
+  border-top: var(--border-width-thin) solid var(--color-border-subtle);
+}
+
+/* ─────────────────────────────────────────────
+ * HEADER
+ * ───────────────────────────────────────────── */
+
+.header {
+  margin-bottom: var(--space-12);
+}
+
+.sectionLabel {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.heading {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* ─────────────────────────────────────────────
+ * ESSAY GRID
+ * 2 columns on desktop, 1 on mobile.
+ * No thumbnails — typography only.
+ * ───────────────────────────────────────────── */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-8);
+  margin-bottom: var(--space-10);
+}
+
+.card {
+  border-top: var(--border-width-thin) solid var(--color-border-subtle);
+  padding-top: var(--space-6);
+}
+
+.cardLink {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: inherit;
+}
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.type {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+.readingTime {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+.metaDot {
+  font-size: var(--font-size-xs);
+  color: var(--color-border-default);
+}
+
+/* Hover: title weight increase — from docs/16_BUILD_BRIEF.md */
+.cardTitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-lg);  /* ≥ 28px per spec */
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-tight);
+  transition: font-weight var(--duration-fast) var(--ease-out);
+}
+
+.cardLink:hover .cardTitle {
+  font-weight: var(--font-weight-bold);
+}
+
+.cardSubtitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* ─────────────────────────────────────────────
+ * CTA
+ * ───────────────────────────────────────────── */
+
+.cta {
+  margin-top: var(--space-4);
+}
+
+.ctaLink {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.ctaLink:hover {
+  opacity: 0.7;
+}
+
+/* ─────────────────────────────────────────────
+ * EMPTY STATE
+ * ───────────────────────────────────────────── */
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-8) 0;
+}
+
+.emptyText {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-style: italic;
+  color: var(--color-text-tertiary);
+  line-height: var(--leading-relaxed);
+  max-width: var(--measure-default);
+}
+
+.emptyLink {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.emptyLink:hover {
+  opacity: 0.7;
+}

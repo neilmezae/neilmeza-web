@@ -1,0 +1,28 @@
+---
+title: "[EJEMPLO] Título del Ensayo"
+subtitle: "Subtítulo que complementa y amplía el título"
+slug: "ejemplo-ensayo"
+publishedAt: "2024-01-15"
+status: "draft"
+type: "ensayo"
+tags:
+  - "infraestructura colaborativa"
+  - "innovación territorial"
+relatedCases: []
+metaDescription: "Archivo de ejemplo para verificar el loader de ensayos. No es contenido real."
+---
+
+Este archivo existe únicamente para verificar que el loader de `getEssays()` puede leer y parsear frontmatter correctamente.
+
+**No es contenido real.** Para el modelo editorial completo, ver `docs/09_CONTENT_STRATEGY.md`.
+
+El `readingTime` no está definido en el frontmatter de este ejemplo — el loader lo calculará automáticamente a partir del contenido.
+
+Para publicar un ensayo real:
+1. Duplica este archivo con el nombre `slug-del-ensayo.mdx`
+2. Completa todos los campos del frontmatter
+3. Escribe el argumento completo (mínimo 1.500 palabras para `type: "ensayo"`)
+4. Verifica que pasa los 7 tests de calidad de `docs/09_CONTENT_STRATEGY.md`
+5. Cambia `status` a `"published"` cuando esté listo
+
+Este archivo permanecerá como `draft` y no aparecerá en producción.

@@ -1,0 +1,119 @@
+/*
+ * EssayIndexItem — single row in /pensamiento list
+ * No thumbnails. Title + subtitle + date + reading time + type + tags.
+ * Source: docs/05_INFORMATION_ARCHITECTURE.md §IV (Pensamiento)
+ */
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-8) 0;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.item:hover {
+  background-color: var(--color-background-subtle);
+  margin-left: calc(-1 * var(--space-4));
+  margin-right: calc(-1 * var(--space-4));
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+  border-radius: var(--radius-base);
+}
+
+/* ─────────────────────────────────────────────
+ * TITLE + SUBTITLE
+ * ───────────────────────────────────────────── */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-tight);
+
+  /* Hover: weight increase — communicates density, from docs/06_USER_EXPERIENCE.md §VI */
+  transition: font-weight var(--duration-fast) var(--ease-out);
+}
+
+.item:hover .title {
+  font-weight: var(--font-weight-bold);
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: var(--measure-default);
+}
+
+/* ─────────────────────────────────────────────
+ * META LINE — date · reading time · type
+ * ───────────────────────────────────────────── */
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.metaLine {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.date,
+.readingTime {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
+
+.dot {
+  font-size: var(--font-size-xs);
+  color: var(--color-border-default);
+}
+
+.typeLabel {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────────
+ * TAGS
+ * ───────────────────────────────────────────── */
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tag {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-wide);
+  padding: 2px var(--space-2);
+  border: var(--border-width-thin) solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+}

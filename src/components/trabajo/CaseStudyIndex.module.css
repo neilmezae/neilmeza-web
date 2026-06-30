@@ -1,0 +1,81 @@
+/*
+ * CaseStudyIndex — /trabajo index page
+ * Editorial text list. No thumbnails. No grid.
+ * Source: docs/05_INFORMATION_ARCHITECTURE.md §IV (Trabajo)
+ */
+
+.section {
+  padding-top: var(--space-32);
+  padding-bottom: var(--space-section-gap);
+}
+
+/* ─────────────────────────────────────────────
+ * PAGE HEADER
+ * ───────────────────────────────────────────── */
+
+.header {
+  margin-bottom: var(--space-16);
+  max-width: var(--max-width-text);
+}
+
+.sectionLabel {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+
+.heading {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-6);
+}
+
+.intro {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: var(--measure-default);
+}
+
+/* ─────────────────────────────────────────────
+ * LIST
+ * ───────────────────────────────────────────── */
+
+.list {
+  list-style: none;
+  border-top: var(--border-width-thin) solid var(--color-border-subtle);
+}
+
+.listItem {
+  border-bottom: var(--border-width-thin) solid var(--color-border-subtle);
+}
+
+/* ─────────────────────────────────────────────
+ * EMPTY STATE
+ * Voice of the brand — not a generic "no results"
+ * Source: docs/06_USER_EXPERIENCE.md §VIII
+ * ───────────────────────────────────────────── */
+
+.emptyState {
+  padding: var(--space-16) 0;
+  max-width: var(--measure-default);
+}
+
+.emptyText {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  font-style: italic;
+  max-width: var(--measure-default);
+}

@@ -1,0 +1,56 @@
+/*
+ * ContactQualifier — "Con quiénes" + "Qué no es esto"
+ * Same two-column grid as AboutSection — label / body.
+ * Source: docs/16_BUILD_BRIEF.md §II.5
+ */
+
+.qualifier {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-block-gap);
+}
+
+.block {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: var(--space-8);
+  padding-top: var(--space-block-gap);
+  padding-bottom: var(--space-block-gap);
+  border-top: var(--border-width-thin) solid var(--color-border-subtle);
+}
+
+.blockLabel {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  padding-top: var(--space-1);
+  flex-shrink: 0;
+}
+
+.blockBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.blockBody p {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  line-height: var(--leading-relaxed);
+  max-width: var(--measure-default);
+}
+
+/* ─────────────────────────────────────────────
+ * RESPONSIVE
+ * ───────────────────────────────────────────── */
+
+@media (max-width: 56rem) {
+  .block {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}

@@ -1,0 +1,98 @@
+/*
+ * CaseStudyConnections — bottom of each case study page
+ * Narrative connectors to related essays + next case + primary CTA.
+ * Source: docs/05_INFORMATION_ARCHITECTURE.md §VIII
+ */
+
+.connections {
+  margin-top: var(--space-section-gap);
+  padding-bottom: var(--space-section-gap);
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--color-border-subtle);
+  margin-bottom: var(--space-block-gap);
+}
+
+/* ─────────────────────────────────────────────
+ * CONNECTIONS GRID
+ * ───────────────────────────────────────────── */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-block-gap);
+  margin-bottom: var(--space-block-gap);
+}
+
+.connection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.connectionLabel {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+.essayList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.connectionLink {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.connectionLink:hover {
+  opacity: 0.7;
+}
+
+/* ─────────────────────────────────────────────
+ * PRIMARY CTA
+ * ───────────────────────────────────────────── */
+
+.cta {
+  padding-top: var(--space-block-gap);
+  border-top: var(--border-width-thin) solid var(--color-border-subtle);
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.ctaText {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: none;
+}
+
+.ctaLink {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity var(--duration-fast) var(--ease-out);
+  flex-shrink: 0;
+}
+
+.ctaLink:hover {
+  opacity: 0.7;
+}

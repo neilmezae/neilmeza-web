@@ -1,0 +1,86 @@
+/*
+ * InvitationBlock — Block 6 of homepage
+ * Background: --color-background-subtle — visually distinct closing section.
+ * Display question + copper CTA button.
+ * Source: docs/16_BUILD_BRIEF.md §II.1 — Bloque 6
+ */
+
+.section {
+  background-color: var(--color-background-subtle);
+  padding: var(--space-section-gap) 0;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-10);
+}
+
+/* ─────────────────────────────────────────────
+ * QUESTION — display scale, not body text
+ * ───────────────────────────────────────────── */
+
+.question {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 20ch;
+}
+
+/* ─────────────────────────────────────────────
+ * SUPPORT TEXT — optional framing below question
+ * ───────────────────────────────────────────── */
+
+.support {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: 52ch;
+  margin-top: calc(-1 * var(--space-6)); /* pull closer to the question */
+}
+
+/* ─────────────────────────────────────────────
+ * CTA BUTTON — copper accent, primary action
+ * ───────────────────────────────────────────── */
+
+.cta {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-background);
+  background-color: var(--color-accent);
+  letter-spacing: var(--tracking-normal);
+
+  padding: var(--space-3) var(--space-8);
+  border-radius: var(--radius-base);
+  text-decoration: none;
+
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.cta:hover {
+  opacity: 0.88;
+}
+
+.cta:active {
+  transform: scale(0.99);
+}
+
+/* ─────────────────────────────────────────────
+ * RESPONSIVE
+ * ───────────────────────────────────────────── */
+
+@media (max-width: 48rem) {
+  .question {
+    font-size: var(--font-size-xl);
+    max-width: none;
+  }
+}

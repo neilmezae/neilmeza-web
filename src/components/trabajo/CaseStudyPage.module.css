@@ -1,0 +1,16 @@
+/*
+ * CaseStudyPage — full layout for /trabajo/[slug]
+ * Single long-form page: header → MDX body → connections → CTA
+ */
+
+.content {
+  padding-bottom: var(--space-block-gap);
+}
+
+.contentPlaceholder {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  color: var(--color-text-tertiary);
+  font-style: italic;
+  max-width: none;
+}

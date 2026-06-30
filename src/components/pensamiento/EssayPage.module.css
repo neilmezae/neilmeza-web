@@ -1,0 +1,16 @@
+/*
+ * EssayPage — full layout for /pensamiento/[slug]
+ * Essay body: uses .prose class from typography.css for reading optimization.
+ * The Container variant="essay" handles max-width (40rem / ~640px).
+ */
+
+.body {
+  padding-bottom: var(--space-block-gap);
+}
+
+.placeholder {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  color: var(--color-text-tertiary);
+  font-style: italic;
+}

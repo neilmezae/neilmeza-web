@@ -1,0 +1,26 @@
+/*
+ * ArgumentBlock — Block 2 of homepage
+ * Text column max-width 68ch. No images. Söhne Regular 18-21px.
+ * Source: docs/16_BUILD_BRIEF.md §II.1 — Bloque 2
+ */
+
+.section {
+  padding: var(--space-section-gap) 0;
+  border-top: var(--border-width-thin) solid var(--color-border-subtle);
+}
+
+.body {
+  max-width: 68ch;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.paragraph {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);  /* 21px */
+  font-weight: var(--font-weight-light);
+  color: var(--color-text-primary);
+  line-height: 1.65;               /* spec: 1.65 per build brief */
+  letter-spacing: var(--tracking-normal);
+}

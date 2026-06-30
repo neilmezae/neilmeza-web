@@ -1,0 +1,231 @@
+/*
+ * WorkPreviewBlock — Block 3 of homepage
+ * Up to 3 cases. Editorial numbered list, not a card grid.
+ * Hover: essence phrase transitions in.
+ * Source: docs/16_BUILD_BRIEF.md §II.1 — Bloque 3
+ */
+
+.section {
+  padding: var(--space-section-gap) 0;
+  border-top: var(--border-width-thin) solid var(--color-border-subtle);
+}
+
+/* ─────────────────────────────────────────────
+ * HEADER
+ * ───────────────────────────────────────────── */
+
+.header {
+  margin-bottom: var(--space-12);
+}
+
+.sectionLabel {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.heading {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* ─────────────────────────────────────────────
+ * CASE LIST
+ * ───────────────────────────────────────────── */
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border-top: var(--border-width-thin) solid var(--color-border-subtle);
+}
+
+.item {
+  border-bottom: var(--border-width-thin) solid var(--color-border-subtle);
+}
+
+.itemLink {
+  display: grid;
+  grid-template-columns: 3rem 1fr auto;
+  align-items: start;
+  gap: var(--space-6);
+  padding: var(--space-8) 0;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.itemLink:hover {
+  background-color: var(--color-background-subtle);
+  margin-left: calc(-1 * var(--space-4));
+  margin-right: calc(-1 * var(--space-4));
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+  border-radius: var(--radius-base);
+}
+
+/* ─────────────────────────────────────────────
+ * ITEM NUMBER
+ * ───────────────────────────────────────────── */
+
+.itemNumber {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-light);
+  color: var(--color-text-tertiary);
+  padding-top: var(--space-1);
+  letter-spacing: var(--tracking-wide);
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────
+ * ITEM BODY — title + essence phrase
+ * ───────────────────────────────────────────── */
+
+.itemBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.itemTitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-tight);
+  transition: font-weight var(--duration-fast) var(--ease-out);
+}
+
+.itemLink:hover .itemTitle {
+  font-weight: var(--font-weight-bold);
+}
+
+/* Essence phrase — hidden by default, shown on hover */
+.itemEssence {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: var(--measure-default);
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.itemLink:hover .itemEssence {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .itemEssence {
+    transition: opacity var(--duration-fast) var(--ease-out);
+    transform: none;
+  }
+}
+
+/* ─────────────────────────────────────────────
+ * ITEM META — territory · period
+ * ───────────────────────────────────────────── */
+
+.itemMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  white-space: nowrap;
+  padding-top: var(--space-1);
+  flex-shrink: 0;
+}
+
+.metaDot {
+  color: var(--color-border-default);
+}
+
+/* ─────────────────────────────────────────────
+ * CTA
+ * ───────────────────────────────────────────── */
+
+.cta {
+  margin-top: var(--space-8);
+}
+
+.ctaLink {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.ctaLink:hover {
+  opacity: 0.7;
+}
+
+/* ─────────────────────────────────────────────
+ * EMPTY STATE
+ * ───────────────────────────────────────────── */
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-8) 0;
+}
+
+.emptyText {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-style: italic;
+  color: var(--color-text-tertiary);
+  line-height: var(--leading-relaxed);
+  max-width: var(--measure-default);
+}
+
+.emptyLink {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.emptyLink:hover {
+  opacity: 0.7;
+}
+
+/* ─────────────────────────────────────────────
+ * RESPONSIVE
+ * ───────────────────────────────────────────── */
+
+@media (max-width: 48rem) {
+  .itemLink {
+    grid-template-columns: 2.5rem 1fr;
+  }
+
+  .itemMeta {
+    grid-column: 2;
+  }
+
+  .itemEssence {
+    opacity: 1;
+    transform: none;
+  }
+}

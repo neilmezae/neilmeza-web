@@ -1,0 +1,132 @@
+/*
+ * EssayHeader — top of individual essay page
+ * Type label → title → subtitle → date → tags.
+ * Optimized for the reading mode entry: signals "this is long-form content."
+ * Source: docs/16_BUILD_BRIEF.md §II.3, docs/07_VISUAL_IDENTITY.md §III
+ */
+
+.header {
+  padding-top: var(--space-32);
+  padding-bottom: var(--space-12);
+  border-bottom: var(--border-width-thin) solid var(--color-border-subtle);
+  margin-bottom: var(--space-block-gap);
+}
+
+/* ─────────────────────────────────────────────
+ * TYPE + READING TIME
+ * ───────────────────────────────────────────── */
+
+.typeLine {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.typeLabel {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+.readingTime {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-wide);
+}
+
+.dot {
+  font-size: var(--font-size-xs);
+  color: var(--color-border-default);
+}
+
+/* ─────────────────────────────────────────────
+ * TITLE
+ * Large — signals the weight of what follows.
+ * ───────────────────────────────────────────── */
+
+.title {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  max-width: 24ch;
+  margin-bottom: var(--space-4);
+}
+
+/* ─────────────────────────────────────────────
+ * SUBTITLE
+ * Set in sans — distinct from the serif body below.
+ * ───────────────────────────────────────────── */
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-light);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: var(--measure-default);
+  margin-bottom: var(--space-8);
+}
+
+/* ─────────────────────────────────────────────
+ * DATE
+ * ───────────────────────────────────────────── */
+
+.metaLine {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-6);
+}
+
+.date,
+.updated {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
+
+/* ─────────────────────────────────────────────
+ * TAGS
+ * ───────────────────────────────────────────── */
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tag {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-wide);
+  padding: var(--space-1) var(--space-3);
+  border: var(--border-width-thin) solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+}
+
+/* ─────────────────────────────────────────────
+ * RESPONSIVE
+ * ───────────────────────────────────────────── */
+
+@media (max-width: 48rem) {
+  .header {
+    padding-top: var(--space-24);
+  }
+
+  .title {
+    font-size: var(--font-size-xl);
+  }
+}

@@ -1,0 +1,202 @@
+/*
+ * ContactForm — strategic contact form for /construyamos
+ * Editorial, quiet, premium. 7 fields: 3 contact + 4 strategic questions.
+ * Source: docs/16_BUILD_BRIEF.md §II.5, docs/07_VISUAL_IDENTITY.md §IV
+ */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-block-gap);
+}
+
+/* ─────────────────────────────────────────────
+ * HONEYPOT — invisible to humans
+ * Position off-screen, not display:none (bots check display:none)
+ * ───────────────────────────────────────────── */
+
+.honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ─────────────────────────────────────────────
+ * FIELDSETS — remove default browser styles
+ * ───────────────────────────────────────────── */
+
+.contactFields,
+.questionFields {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.fieldsetLegend {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  margin-bottom: var(--space-6);
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────────
+ * INDIVIDUAL FIELD
+ * ───────────────────────────────────────────── */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Regular label (contact fields) */
+.label {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  letter-spacing: var(--tracking-normal);
+}
+
+/* Question label — larger weight, signals this matters */
+.questionLabel {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-tight);
+}
+
+.required {
+  color: var(--color-accent);
+  margin-left: 2px;
+}
+
+/* ─────────────────────────────────────────────
+ * INPUT + TEXTAREA — shared
+ * ───────────────────────────────────────────── */
+
+.input,
+.textarea {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  line-height: var(--leading-relaxed);
+
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: var(--border-width-thin) solid var(--color-border-default);
+  border-radius: var(--radius-base);
+
+  outline: none;
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+
+  /* Prevent mobile zoom on iOS (requires font-size >= 16px) */
+  font-size: max(var(--font-size-base), 16px);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 7rem;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--color-text-primary);
+  box-shadow: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-border-default);
+}
+
+.inputError {
+  border-color: var(--color-accent);
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-accent);
+}
+
+/* ─────────────────────────────────────────────
+ * ERROR MESSAGE
+ * ───────────────────────────────────────────── */
+
+.error {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-accent);
+  line-height: var(--leading-normal);
+}
+
+/* ─────────────────────────────────────────────
+ * SUBMIT ROW
+ * ───────────────────────────────────────────── */
+
+.submitRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  padding-top: var(--space-4);
+}
+
+.submit {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-background);
+  background-color: var(--color-text-primary);
+  letter-spacing: var(--tracking-normal);
+
+  padding: var(--space-3) var(--space-8);
+  border: none;
+  border-radius: var(--radius-base);
+  cursor: pointer;
+
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.submit:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.submit:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+.submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.requiredNote {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+.sendError {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--color-background-subtle);
+  border-left: 2px solid var(--color-border-strong);
+}

@@ -1,0 +1,32 @@
+/*
+ * ReadingProgress — fixed thin bar at top of viewport
+ * Uses transform: scaleX for GPU-composited animation (no layout thrash).
+ * Source: docs/13_PERFORMANCE.md — animate only transform + opacity.
+ */
+
+.track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: calc(var(--z-nav) + 1); /* above the NavBar */
+  background-color: var(--color-border-subtle);
+  pointer-events: none;
+}
+
+.fill {
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-accent);
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+/* Disable transition for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .fill {
+    transition: none;
+  }
+}
