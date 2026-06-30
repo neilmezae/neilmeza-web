@@ -26,10 +26,10 @@ export default function ThesisBlock() {
 
       <div className={styles.phrases}>
         <p className={styles.phrase}>
-          "Mi visión nunca ha sido regional. Mi punto de partida sí lo es."
+          <p>«Mi visión nunca ha sido regional. Mi punto de partida sí lo es.»</p>
         </p>
         <p className={styles.phrase}>
-          "Transformar la complejidad en colaboración y la colaboración en resultados."
+          <p>«Transformar la complejidad en colaboración y la colaboración en resultados.»</p>
         </p>
       </div>
     </aside>
